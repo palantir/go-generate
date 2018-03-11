@@ -19,4 +19,4 @@ products:
         - os: linux
           arch: amd64
       version-var: github.com/palantir/go-generate/vendor/github.com/palantir/pkg/cobracli.Version
-group-id: com.palantir.godel
+group-id: com.palantir.go-generate
