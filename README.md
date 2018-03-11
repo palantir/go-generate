@@ -1,15 +1,15 @@
-gogenerate
-==========
-`gogenerate` is a tool that runs `go generate` in directories specified in the configuration. The configuration also
+go-generate
+===========
+go-generate is a tool that runs `go generate` in directories specified in the configuration. The configuration also
 enables the specification of the files or directories that are expected to be produced by `go generate`, and can be run
 in `verify` mode to verify whether any of the output files changed as a result of running the generator.
 
 Usage
 -----
-Run `./gogenerate --config=generate.yml` to run the `go generate` command in the directories specified by the
+Run `./go-generate --config=generate.yml` to run the `go generate` command in the directories specified by the
 configuration.
 
-Run `./gogenerate --config=generate.yml --verify` to verify that running the `go generate` command for the specified
+Run `./go-generate --config=generate.yml --verify` to verify that running the `go generate` command for the specified
 configuration did not change any of the files or directories specified by the configuration. If any of the matching
 paths did change, the program prints the differences and exits with a non-0 exit code.
 
@@ -30,3 +30,7 @@ generators:
       paths:
         - "gen/output.txt"
 ```
+
+go-generate-plugin
+==================
+go-generate-plugin is a gödel plugin that provides the `generate` task, which runs go-generate for the project.
