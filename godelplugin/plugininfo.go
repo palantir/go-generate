@@ -28,19 +28,19 @@ import (
 	"github.com/palantir/pkg/cobracli"
 )
 
-var pluginInfo = pluginapi.MustNewInfo(
-	"com.palantir",
+var pluginInfo = pluginapi.MustNewPluginInfo(
+	"com.palantir.go-generate",
 	"generate-plugin",
 	cobracli.Version,
-	"generate.yml",
-	pluginapi.MustNewTaskInfo(
+	pluginapi.PluginInfoUsesConfigFile(),
+	pluginapi.PluginInfoGlobalFlagOptions(
+		pluginapi.GlobalFlagOptionsParamDebugFlag("--"+pluginapi.DebugFlagName),
+		pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
+		pluginapi.GlobalFlagOptionsParamConfigFlag("--"+pluginapi.ConfigFlagName),
+	),
+	pluginapi.PluginInfoTaskInfo(
 		"generate",
 		"Run generate task",
-		pluginapi.TaskInfoGlobalFlagOptions(pluginapi.NewGlobalFlagOptions(
-			pluginapi.GlobalFlagOptionsParamDebugFlag("--"+pluginapi.DebugFlagName),
-			pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
-			pluginapi.GlobalFlagOptionsParamConfigFlag("--"+pluginapi.ConfigFlagName),
-		)),
 		pluginapi.TaskInfoVerifyOptions(pluginapi.NewVerifyOptions(
 			pluginapi.VerifyOptionsOrdering(intVar(verifyorder.Generate)),
 			pluginapi.VerifyOptionsApplyFalseArgs("--verify"),

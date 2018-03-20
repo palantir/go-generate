@@ -47,7 +47,7 @@ generators:
 `
 	err = os.MkdirAll(path.Join(projectDir, "godel", "config"), 0755)
 	require.NoError(t, err)
-	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "generate.yml"), []byte(generateYML), 0644)
+	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "generate-plugin.yml"), []byte(generateYML), 0644)
 	require.NoError(t, err)
 
 	specs := []gofiles.GoFileSpec{
@@ -84,7 +84,7 @@ func main() {
 	require.NoError(t, err)
 
 	outputBuf := &bytes.Buffer{}
-	runPluginCleanup, err := pluginapitester.RunPlugin(pluginPath, nil, "generate", []string{
+	runPluginCleanup, err := pluginapitester.RunPlugin(pluginapitester.NewPluginProvider(pluginPath), nil, "generate", []string{
 		"--verify",
 	}, projectDir, false, outputBuf)
 	defer runPluginCleanup()
