@@ -16,17 +16,14 @@ package cmd
 
 import (
 	"github.com/palantir/godel/framework/pluginapi"
-
-	"github.com/palantir/go-generate/commoncmd"
+	"github.com/spf13/cobra"
 )
 
 var (
-	RootCmd = commoncmd.NewRunCmd(
-		"generate",
-		&projectDirFlagVal,
-		&cfgFlagVal,
-		&verifyFlagVal,
-	)
+	RootCmd = &cobra.Command{
+		Use:   "generate",
+		Short: "Run generators specified in configuration",
+	}
 
 	projectDirFlagVal string
 	cfgFlagVal        string
@@ -34,7 +31,6 @@ var (
 )
 
 func init() {
-	pluginapi.AddProjectDirPFlagPtr(RootCmd.Flags(), &projectDirFlagVal)
-	RootCmd.Flags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
-	RootCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
+	pluginapi.AddProjectDirPFlagPtr(RootCmd.PersistentFlags(), &projectDirFlagVal)
+	RootCmd.PersistentFlags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
 }

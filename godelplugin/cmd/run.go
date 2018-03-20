@@ -15,26 +15,17 @@
 package cmd
 
 import (
-	"github.com/palantir/godel/framework/pluginapi"
-
 	"github.com/palantir/go-generate/commoncmd"
 )
 
-var (
-	RootCmd = commoncmd.NewRunCmd(
-		"generate",
-		&projectDirFlagVal,
-		&cfgFlagVal,
-		&verifyFlagVal,
-	)
-
-	projectDirFlagVal string
-	cfgFlagVal        string
-	verifyFlagVal     bool
+var runCmd = commoncmd.NewRunCmd(
+	"run [flags]",
+	&projectDirFlagVal,
+	&cfgFlagVal,
+	&verifyFlagVal,
 )
 
 func init() {
-	pluginapi.AddProjectDirPFlagPtr(RootCmd.Flags(), &projectDirFlagVal)
-	RootCmd.Flags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
-	RootCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
+	runCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
+	RootCmd.AddCommand(runCmd)
 }

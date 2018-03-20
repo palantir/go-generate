@@ -41,10 +41,14 @@ var pluginInfo = pluginapi.MustNewPluginInfo(
 	pluginapi.PluginInfoTaskInfo(
 		"generate",
 		"Run generate task",
+		pluginapi.TaskInfoCommand("run"),
 		pluginapi.TaskInfoVerifyOptions(pluginapi.NewVerifyOptions(
 			pluginapi.VerifyOptionsOrdering(intVar(verifyorder.Generate)),
 			pluginapi.VerifyOptionsApplyFalseArgs("--verify"),
 		)),
+	),
+	pluginapi.PluginInfoUpgradeConfigTaskInfo(
+		pluginapi.UpgradeConfigTaskInfoCommand("upgrade-config"),
 	),
 )
 
