@@ -20,21 +20,8 @@ import (
 	"github.com/palantir/go-generate/commoncmd"
 )
 
-var (
-	RootCmd = commoncmd.NewRunCmd(
-		"generate",
-		&projectDirFlagVal,
-		&cfgFlagVal,
-		&verifyFlagVal,
-	)
-
-	projectDirFlagVal string
-	cfgFlagVal        string
-	verifyFlagVal     bool
-)
+var upgradeConfigCmd = pluginapi.CobraUpgradeConfigCmd(commoncmd.UpgradeConfig)
 
 func init() {
-	pluginapi.AddProjectDirPFlagPtr(RootCmd.Flags(), &projectDirFlagVal)
-	RootCmd.Flags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
-	RootCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
+	RootCmd.AddCommand(upgradeConfigCmd)
 }
