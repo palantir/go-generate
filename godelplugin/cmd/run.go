@@ -18,11 +18,15 @@ import (
 	"github.com/palantir/go-generate/commoncmd"
 )
 
-var runCmd = commoncmd.NewRunCmd(
-	"run [flags]",
-	&projectDirFlagVal,
-	&cfgFlagVal,
-	&verifyFlagVal,
+var (
+	runCmd = commoncmd.NewRunCmd(
+		"run [flags]",
+		&projectDirFlagVal,
+		&cfgFlagVal,
+		&verifyFlagVal,
+	)
+
+	verifyFlagVal bool
 )
 
 func init() {

@@ -27,7 +27,6 @@ var (
 
 	projectDirFlagVal string
 	cfgFlagVal        string
-	verifyFlagVal     bool
 )
 
 func init() {
