@@ -17,10 +17,10 @@ package cmd
 import (
 	"github.com/palantir/godel/framework/pluginapi"
 
-	"github.com/palantir/go-generate/commoncmd"
+	"github.com/palantir/go-generate/gogenerate/config"
 )
 
-var upgradeConfigCmd = pluginapi.CobraUpgradeConfigCmd(commoncmd.UpgradeConfig)
+var upgradeConfigCmd = pluginapi.CobraUpgradeConfigCmd(config.UpgradeConfig)
 
 func init() {
 	RootCmd.AddCommand(upgradeConfigCmd)
