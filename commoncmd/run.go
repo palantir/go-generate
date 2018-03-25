@@ -23,6 +23,7 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/palantir/go-generate/gogenerate"
+	"github.com/palantir/go-generate/gogenerate/config"
 )
 
 func NewRunCmd(use string, projectDirFlagVal, cfgFlagVal *string, verifyFlagVal *bool) *cobra.Command {
@@ -55,14 +56,14 @@ func loadConfig(cfgFile string) (gogenerate.ProjectParam, error) {
 	if err != nil {
 		return gogenerate.ProjectParam{}, errors.Wrapf(err, "failed to read file %s", cfgFile)
 	}
-	upgradedCfg, err := UpgradeConfig(cfgYML)
+	upgradedCfg, err := config.UpgradeConfig(cfgYML)
 	if err != nil {
 		return gogenerate.ProjectParam{}, err
 	}
 
-	var cfg gogenerate.ProjectConfig
+	var cfg config.ProjectConfig
 	if err := yaml.Unmarshal(upgradedCfg, &cfg); err != nil {
-		return gogenerate.ProjectParam{}, errors.Wrapf(err, "failed to unmarshal configuration as YAML")
+		return gogenerate.ProjectParam{}, errors.Wrapf(err, "failed to unmarshal go-generate configuration")
 	}
 	return cfg.ToParam(), nil
 }

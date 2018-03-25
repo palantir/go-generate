@@ -29,6 +29,7 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/palantir/go-generate/gogenerate"
+	"github.com/palantir/go-generate/gogenerate/config"
 )
 
 func TestRun(t *testing.T) {
@@ -73,7 +74,7 @@ generators:
       paths:
         - "gen/output.txt"
 `
-	var cfg gogenerate.ProjectConfig
+	var cfg config.ProjectConfig
 	err = yaml.Unmarshal([]byte(configYML), &cfg)
 	require.NoError(t, err)
 
@@ -131,7 +132,7 @@ generators:
     environment:
       GOGEN_VAR: test-val
 `
-	var cfg gogenerate.ProjectConfig
+	var cfg config.ProjectConfig
 	err = yaml.Unmarshal([]byte(configYML), &cfg)
 	require.NoError(t, err)
 
@@ -423,7 +424,7 @@ func main() {
 		_, err = gofiles.Write(currCaseDir, currCase.gofiles)
 		require.NoError(t, err, "Case %d: %s", currCaseNum, currCase.name)
 
-		var cfg gogenerate.ProjectConfig
+		var cfg config.ProjectConfig
 		err = yaml.Unmarshal([]byte(currCase.configYML), &cfg)
 		require.NoError(t, err)
 
