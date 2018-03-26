@@ -20,15 +20,15 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package main
+package cmd
 
 import (
-	"github.com/palantir/godel/framework/pluginapi"
+	"github.com/palantir/godel/framework/pluginapi/v2/pluginapi"
 	"github.com/palantir/godel/framework/verifyorder"
 	"github.com/palantir/pkg/cobracli"
 )
 
-var pluginInfo = pluginapi.MustNewPluginInfo(
+var PluginInfo = pluginapi.MustNewPluginInfo(
 	"com.palantir.go-generate",
 	"generate-plugin",
 	cobracli.Version,
@@ -42,13 +42,14 @@ var pluginInfo = pluginapi.MustNewPluginInfo(
 		"generate",
 		"Run generate task",
 		pluginapi.TaskInfoCommand("run"),
-		pluginapi.TaskInfoVerifyOptions(pluginapi.NewVerifyOptions(
+		pluginapi.TaskInfoVerifyOptions(
 			pluginapi.VerifyOptionsOrdering(intVar(verifyorder.Generate)),
 			pluginapi.VerifyOptionsApplyFalseArgs("--verify"),
-		)),
+		),
 	),
 	pluginapi.PluginInfoUpgradeConfigTaskInfo(
 		pluginapi.UpgradeConfigTaskInfoCommand("upgrade-config"),
+		pluginapi.LegacyConfigFile("generate.yml"),
 	),
 )
 
