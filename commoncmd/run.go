@@ -17,6 +17,7 @@ package commoncmd
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -53,6 +54,9 @@ func NewRunCmd(use string, projectDirFlagVal, cfgFlagVal *string, verifyFlagVal 
 
 func loadConfig(cfgFile string) (gogenerate.ProjectParam, error) {
 	cfgYML, err := ioutil.ReadFile(cfgFile)
+	if os.IsNotExist(err) {
+		return gogenerate.ProjectParam{}, nil
+	}
 	if err != nil {
 		return gogenerate.ProjectParam{}, errors.Wrapf(err, "failed to read file %s", cfgFile)
 	}

@@ -16,26 +16,32 @@
 // Use of this source code is governed by the Apache License, Version 2.0
 // that can be found in the LICENSE file.
 
-// Copyright 2016 Palantir Technologies, Inc. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
+package config
 
 import (
-	"os"
+	"github.com/pkg/errors"
 
-	"github.com/palantir/godel/framework/pluginapi/v2/pluginapi"
-	"github.com/palantir/pkg/cobracli"
-
-	"github.com/palantir/go-generate/godelplugin/cmd"
+	"github.com/palantir/godel/framework/godel/config/internal/legacy"
+	"github.com/palantir/godel/framework/godel/config/internal/v0"
+	"github.com/palantir/godel/pkg/versionedconfig"
 )
 
-var debugFlagVal bool
-
-func main() {
-	if ok := pluginapi.InfoCmd(os.Args, os.Stdout, cmd.PluginInfo); ok {
-		return
+func UpgradeConfig(cfgBytes []byte) ([]byte, error) {
+	if versionedconfig.IsLegacyConfig(cfgBytes) {
+		v0Bytes, err := legacy.UpgradeConfig(cfgBytes)
+		if err != nil {
+			return nil, err
+		}
+		cfgBytes = v0Bytes
 	}
-	os.Exit(cobracli.ExecuteWithDefaultParamsWithVersion(cmd.RootCmd, &debugFlagVal, ""))
+	version, err := versionedconfig.ConfigVersion(cfgBytes)
+	if err != nil {
+		return nil, err
+	}
+	switch version {
+	case "", "0":
+		return v0.UpgradeConfig(cfgBytes)
+	default:
+		return nil, errors.Errorf("unsupported version: %s", version)
+	}
 }

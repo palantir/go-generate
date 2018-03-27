@@ -21,9 +21,12 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type GoGenerate struct {
+type GoGenerateWithLegacy struct {
 	versionedconfig.ConfigWithLegacy `yaml:",inline"`
+	GoGenerate                       `yaml:",inline"`
+}
 
+type GoGenerate struct {
 	// Generators is a map from the name of a generator to its configuration.
 	Generators Generators `yaml:"generators"`
 }
@@ -47,10 +50,18 @@ type GeneratorConfig struct {
 }
 
 func UpgradeConfig(cfgBytes []byte) ([]byte, error) {
-	var legacyCfg GoGenerate
+	var legacyCfg GoGenerateWithLegacy
 	if err := yaml.UnmarshalStrict(cfgBytes, &legacyCfg); err != nil {
 		return nil, errors.Wrapf(err, "failed to unmarshal generate-plugin legacy configuration")
 	}
-	// legacy configuration is completely compatible with v0 configuration
-	return cfgBytes, nil
+	// optimization: if input bytes start with the legacy configuration key, trim it to get a valid v0 configuration
+	if trimmed, ok := versionedconfig.TrimLegacyPrefix(cfgBytes); ok {
+		return trimmed, nil
+	}
+	// otherwise, marshal just the GoGenerate portion of the configuration, which is fully compatible with v0
+	upgradedBytes, err := yaml.Marshal(legacyCfg.GoGenerate)
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to marshal generate-plugin legacy configuration")
+	}
+	return upgradedBytes, nil
 }
