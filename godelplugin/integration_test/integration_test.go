@@ -29,16 +29,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-const (
-	godelYML = `exclude:
-  names:
-    - "\\..+"
-    - "vendor"
-  paths:
-    - "godel"
-`
-)
-
 func TestGenerateVerify(t *testing.T) {
 	pluginPath, err := products.Bin("generate-plugin")
 	require.NoError(t, err)
@@ -114,11 +104,9 @@ func TestUpgradeConfig(t *testing.T) {
 		nil,
 		[]pluginapitester.UpgradeConfigTestCase{
 			{
-				Name: "legacy config is unmodified",
+				Name: "legacy config is upgraded",
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/generate-plugin.yml": `legacy-config: true
-
+					"godel/config/generate.yml": `
 generators:
   foo:
     go-generate-dir: gen
@@ -130,17 +118,16 @@ generators:
       GOOS: linux
 `,
 				},
+				Legacy:     true,
 				WantOutput: "Upgraded configuration for generate-plugin.yml\n",
 				WantFiles: map[string]string{
-					"godel/config/generate-plugin.yml": `
-generators:
+					"godel/config/generate-plugin.yml": `generators:
   foo:
     go-generate-dir: gen
     gen-paths:
       paths:
-        - "gen/output.txt"
+      - gen/output.txt
     environment:
-      # comment on environment variable
       GOOS: linux
 `,
 				},
@@ -148,7 +135,6 @@ generators:
 			{
 				Name: "current config is unmodified",
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
 					"godel/config/generate-plugin.yml": `
 generators:
   foo:
