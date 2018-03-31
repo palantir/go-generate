@@ -133,6 +133,30 @@ generators:
 				},
 			},
 			{
+				Name: "legacy config upgrade omits empty fields",
+				ConfigFiles: map[string]string{
+					"godel/config/generate.yml": `
+generators:
+  foo:
+    go-generate-dir: gen
+    gen-paths:
+      paths:
+        - "gen/output.txt"
+`,
+				},
+				Legacy:     true,
+				WantOutput: "Upgraded configuration for generate-plugin.yml\n",
+				WantFiles: map[string]string{
+					"godel/config/generate-plugin.yml": `generators:
+  foo:
+    go-generate-dir: gen
+    gen-paths:
+      paths:
+      - gen/output.txt
+`,
+				},
+			},
+			{
 				Name: "current config is unmodified",
 				ConfigFiles: map[string]string{
 					"godel/config/generate-plugin.yml": `
