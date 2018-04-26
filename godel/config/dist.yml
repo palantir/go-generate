@@ -7,7 +7,6 @@ products:
           arch: amd64
         - os: linux
           arch: amd64
-      version-var: github.com/palantir/go-generate/vendor/github.com/palantir/pkg/cobracli.Version
   generate-plugin:
     build:
       main-pkg: ./godelplugin
@@ -18,5 +17,5 @@ products:
           arch: amd64
         - os: linux
           arch: amd64
-      version-var: github.com/palantir/go-generate/vendor/github.com/palantir/pkg/cobracli.Version
+      version-var: github.com/palantir/go-generate/godelplugin/cmd.Version
 group-id: com.palantir.go-generate
