@@ -25,32 +25,34 @@ package cmd
 import (
 	"github.com/palantir/godel/framework/pluginapi/v2/pluginapi"
 	"github.com/palantir/godel/framework/verifyorder"
-	"github.com/palantir/pkg/cobracli"
 )
 
-var PluginInfo = pluginapi.MustNewPluginInfo(
-	"com.palantir.go-generate",
-	"generate-plugin",
-	cobracli.Version,
-	pluginapi.PluginInfoUsesConfigFile(),
-	pluginapi.PluginInfoGlobalFlagOptions(
-		pluginapi.GlobalFlagOptionsParamDebugFlag("--"+pluginapi.DebugFlagName),
-		pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
-		pluginapi.GlobalFlagOptionsParamConfigFlag("--"+pluginapi.ConfigFlagName),
-	),
-	pluginapi.PluginInfoTaskInfo(
-		"generate",
-		"Run generate task",
-		pluginapi.TaskInfoCommand("run"),
-		pluginapi.TaskInfoVerifyOptions(
-			pluginapi.VerifyOptionsOrdering(intVar(verifyorder.Generate)),
-			pluginapi.VerifyOptionsApplyFalseArgs("--verify"),
+var (
+	Version    = "unspecified"
+	PluginInfo = pluginapi.MustNewPluginInfo(
+		"com.palantir.go-generate",
+		"generate-plugin",
+		Version,
+		pluginapi.PluginInfoUsesConfigFile(),
+		pluginapi.PluginInfoGlobalFlagOptions(
+			pluginapi.GlobalFlagOptionsParamDebugFlag("--"+pluginapi.DebugFlagName),
+			pluginapi.GlobalFlagOptionsParamProjectDirFlag("--"+pluginapi.ProjectDirFlagName),
+			pluginapi.GlobalFlagOptionsParamConfigFlag("--"+pluginapi.ConfigFlagName),
 		),
-	),
-	pluginapi.PluginInfoUpgradeConfigTaskInfo(
-		pluginapi.UpgradeConfigTaskInfoCommand("upgrade-config"),
-		pluginapi.LegacyConfigFile("generate.yml"),
-	),
+		pluginapi.PluginInfoTaskInfo(
+			"generate",
+			"Run generate task",
+			pluginapi.TaskInfoCommand("run"),
+			pluginapi.TaskInfoVerifyOptions(
+				pluginapi.VerifyOptionsOrdering(intVar(verifyorder.Generate)),
+				pluginapi.VerifyOptionsApplyFalseArgs("--verify"),
+			),
+		),
+		pluginapi.PluginInfoUpgradeConfigTaskInfo(
+			pluginapi.UpgradeConfigTaskInfoCommand("upgrade-config"),
+			pluginapi.LegacyConfigFile("generate.yml"),
+		),
+	)
 )
 
 func intVar(val int) *int {
