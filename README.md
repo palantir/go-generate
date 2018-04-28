@@ -30,7 +30,3 @@ generators:
       paths:
         - "gen/output.txt"
 ```
-
-go-generate-plugin
-==================
-go-generate-plugin is a gödel plugin that provides the `generate` task, which runs go-generate for the project.
