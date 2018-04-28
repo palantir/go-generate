@@ -16,12 +16,17 @@ package cmd
 
 import (
 	"github.com/palantir/godel/framework/pluginapi"
+	"github.com/palantir/pkg/cobracli"
 
 	"github.com/palantir/go-generate/commoncmd"
 )
 
+func Execute() int {
+	return cobracli.ExecuteWithDefaultParams(rootCmd)
+}
+
 var (
-	RootCmd = commoncmd.NewRunCmd(
+	rootCmd = commoncmd.NewRunCmd(
 		"generate",
 		&projectDirFlagVal,
 		&cfgFlagVal,
@@ -34,7 +39,7 @@ var (
 )
 
 func init() {
-	pluginapi.AddProjectDirPFlagPtr(RootCmd.Flags(), &projectDirFlagVal)
-	RootCmd.Flags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
-	RootCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
+	pluginapi.AddProjectDirPFlagPtr(rootCmd.Flags(), &projectDirFlagVal)
+	rootCmd.Flags().StringVar(&cfgFlagVal, "config", "", "the YAML configuration file for the generate task")
+	rootCmd.Flags().BoolVar(&verifyFlagVal, "verify", false, "verify that running generators does not change the current output")
 }
