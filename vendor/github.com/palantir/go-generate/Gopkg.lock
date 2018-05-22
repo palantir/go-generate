@@ -25,22 +25,9 @@
   packages = [
     "dirs",
     "errorstringer",
-    "gofiles",
+    "gofiles"
   ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
-
-[[projects]]
-  name = "github.com/palantir/go-generate"
-  packages = [
-    "cmd",
-    "commoncmd",
-    "gogenerate",
-    "gogenerate/config",
-    "gogenerate/config/internal/legacy",
-    "gogenerate/config/internal/v0",
-  ]
-  revision = "fc109310071aea37382552c26c9cb963226739a6"
-  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -54,7 +41,7 @@
     "framework/verifyorder",
     "godelgetter",
     "pkg/osarch",
-    "pkg/versionedconfig",
+    "pkg/versionedconfig"
   ]
   revision = "6ef6fc2811e260af0641aae25a45881217b3cf3d"
 
@@ -64,7 +51,7 @@
   packages = [
     "cobracli",
     "matcher",
-    "specdir",
+    "specdir"
   ]
   revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
@@ -96,7 +83,7 @@
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
-    "require",
+    "require"
   ]
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
@@ -122,6 +109,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c273d0ca69d2dad4ecefd9f9e4887f9bf613e810db075c9226f915595e74482d"
+  inputs-digest = "ca8652ef2d5fc99d396cf3fe1e5848e14493fc1467c56ba7782a5d468e76c812"
   solver-name = "gps-cdcl"
   solver-version = 1
