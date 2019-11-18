@@ -1,0 +1,41 @@
+# github.com/davecgh/go-spew v1.1.0
+github.com/davecgh/go-spew/spew
+# github.com/inconshreveable/mousetrap v1.0.0
+github.com/inconshreveable/mousetrap
+# github.com/mattn/go-runewidth v0.0.2
+github.com/mattn/go-runewidth
+# github.com/nmiyake/pkg v0.0.0-20170627000939-b64318170fde
+github.com/nmiyake/pkg/dirs
+github.com/nmiyake/pkg/errorstringer
+github.com/nmiyake/pkg/gofiles
+# github.com/palantir/godel v2.0.0-rc5.0.20180330171253-6ef6fc2811e2+incompatible
+github.com/palantir/godel/framework/artifactresolver
+github.com/palantir/godel/framework/builtintasks/installupdate/layout
+github.com/palantir/godel/framework/godel
+github.com/palantir/godel/framework/godellauncher
+github.com/palantir/godel/framework/pluginapi
+github.com/palantir/godel/framework/verifyorder
+github.com/palantir/godel/godelgetter
+github.com/palantir/godel/pkg/osarch
+github.com/palantir/godel/pkg/versionedconfig
+# github.com/palantir/pkg v0.0.0-20180424172112-23395ebeee5d
+github.com/palantir/pkg/cobracli
+github.com/palantir/pkg/matcher
+github.com/palantir/pkg/specdir
+# github.com/pkg/errors v0.8.0
+github.com/pkg/errors
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/spf13/cobra v0.0.2
+github.com/spf13/cobra
+# github.com/spf13/pflag v1.0.0
+github.com/spf13/pflag
+# github.com/stretchr/testify v1.2.1
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/require
+# golang.org/x/sys v0.0.0-20190222072716-a9d3bda3a223
+golang.org/x/sys/unix
+# gopkg.in/cheggaaa/pb.v1 v1.0.22
+gopkg.in/cheggaaa/pb.v1
+# gopkg.in/yaml.v2 v2.1.1
+gopkg.in/yaml.v2
