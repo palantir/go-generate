@@ -8,17 +8,17 @@ github.com/mattn/go-runewidth
 github.com/nmiyake/pkg/dirs
 github.com/nmiyake/pkg/errorstringer
 github.com/nmiyake/pkg/gofiles
-# github.com/palantir/godel v2.0.0-rc5.0.20180330171253-6ef6fc2811e2+incompatible
-github.com/palantir/godel/framework/artifactresolver
-github.com/palantir/godel/framework/builtintasks/installupdate/layout
-github.com/palantir/godel/framework/godel
-github.com/palantir/godel/framework/godellauncher
-github.com/palantir/godel/framework/pluginapi
-github.com/palantir/godel/framework/verifyorder
-github.com/palantir/godel/godelgetter
-github.com/palantir/godel/pkg/osarch
-github.com/palantir/godel/pkg/versionedconfig
-# github.com/palantir/pkg v0.0.0-20180424172112-23395ebeee5d
+# github.com/palantir/godel/v2 v2.22.0
+github.com/palantir/godel/v2/framework/artifactresolver
+github.com/palantir/godel/v2/framework/builtintasks/installupdate/layout
+github.com/palantir/godel/v2/framework/godel
+github.com/palantir/godel/v2/framework/godellauncher
+github.com/palantir/godel/v2/framework/pluginapi
+github.com/palantir/godel/v2/framework/verifyorder
+github.com/palantir/godel/v2/godelgetter
+github.com/palantir/godel/v2/pkg/osarch
+github.com/palantir/godel/v2/pkg/versionedconfig
+# github.com/palantir/pkg v0.0.0-20181230161202-d12f4064ff8e
 github.com/palantir/pkg/cobracli
 github.com/palantir/pkg/matcher
 github.com/palantir/pkg/specdir

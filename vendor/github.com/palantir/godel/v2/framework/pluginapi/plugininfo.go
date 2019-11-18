@@ -21,7 +21,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/palantir/godel/framework/godellauncher"
+	"github.com/palantir/godel/v2/framework/godellauncher"
 )
 
 const (
@@ -87,9 +87,9 @@ func NewPluginInfo(group, product, version string, params ...PluginInfoParam) (P
 
 	return pluginInfoImpl{
 		PluginSchemaVersionVar: CurrentSchemaVersion,
-		IDVar:             id,
-		ConfigFileNameVar: configFileName,
-		TasksVar:          builder.tasks,
+		IDVar:                  id,
+		ConfigFileNameVar:      configFileName,
+		TasksVar:               builder.tasks,
 	}, nil
 }
 
