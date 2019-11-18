@@ -16,7 +16,7 @@ package config
 
 import (
 	"github.com/palantir/go-generate/gogenerate"
-	"github.com/palantir/go-generate/gogenerate/config/internal/v0"
+	v0 "github.com/palantir/go-generate/gogenerate/config/internal/v0"
 )
 
 type ProjectConfig v0.ProjectConfig
