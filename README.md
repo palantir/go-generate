@@ -1,3 +1,7 @@
+<p align="right">
+<a href="https://autorelease.general.dmz.palantir.tech/palantir/go-generate"><img src="https://img.shields.io/badge/Perform%20an-Autorelease-success.svg" alt="Autorelease"></a>
+</p>
+
 go-generate
 ===========
 go-generate is a tool that runs `go generate` in directories specified in the configuration. The configuration also enables the specification of the files or directories that are expected to be produced by `go generate`, and can be run in `verify` mode to verify whether any of the output files changed as a result of running the generator.
