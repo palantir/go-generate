@@ -64,7 +64,7 @@ func Verify(rootDir string, projectParam ProjectParam, stdout io.Writer) (bool, 
 			outputParts = append(outputParts, fmt.Sprintf("    %s", currGenLine))
 		}
 	}
-	fmt.Fprintln(stdout, strings.Join(outputParts, "\n"))
+	_, _ = fmt.Fprintln(stdout, strings.Join(outputParts, "\n"))
 	return false, nil
 }
 
