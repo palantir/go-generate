@@ -15,10 +15,9 @@
 package cmd
 
 import (
+	"github.com/palantir/go-generate/commoncmd"
 	"github.com/palantir/godel/v2/framework/pluginapi"
 	"github.com/palantir/pkg/cobracli"
-
-	"github.com/palantir/go-generate/commoncmd"
 )
 
 func Execute() int {
