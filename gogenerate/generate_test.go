@@ -24,12 +24,11 @@ import (
 
 	"github.com/nmiyake/pkg/dirs"
 	"github.com/nmiyake/pkg/gofiles"
+	"github.com/palantir/go-generate/gogenerate"
+	"github.com/palantir/go-generate/gogenerate/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
-
-	"github.com/palantir/go-generate/gogenerate"
-	"github.com/palantir/go-generate/gogenerate/config"
 )
 
 func TestRun(t *testing.T) {

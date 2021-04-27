@@ -19,12 +19,11 @@ import (
 	"io/ioutil"
 	"os"
 
+	"github.com/palantir/go-generate/gogenerate"
+	"github.com/palantir/go-generate/gogenerate/config"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"
-
-	"github.com/palantir/go-generate/gogenerate"
-	"github.com/palantir/go-generate/gogenerate/config"
 )
 
 func NewRunCmd(use string, projectDirFlagVal, cfgFlagVal *string, verifyFlagVal *bool) *cobra.Command {
