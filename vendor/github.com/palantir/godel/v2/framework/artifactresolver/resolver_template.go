@@ -20,10 +20,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/pkg/errors"
-
 	"github.com/palantir/godel/v2/godelgetter"
 	"github.com/palantir/godel/v2/pkg/osarch"
+	"github.com/pkg/errors"
 )
 
 func NewTemplateResolver(tmpl string) (Resolver, error) {
@@ -62,6 +61,9 @@ func funcMap(locator LocatorParam, osArch osarch.OSArch) template.FuncMap {
 		},
 		"GroupPath": func() string {
 			return strings.Replace(locator.Group, ".", "/", -1)
+		},
+		"GroupParts": func() []string {
+			return strings.Split(locator.Group, ".")
 		},
 		"Product": func() string {
 			return locator.Product
