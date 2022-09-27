@@ -1,6 +1,6 @@
 module github.com/palantir/go-generate
 
-go 1.18
+go 1.19
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
