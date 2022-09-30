@@ -14,6 +14,8 @@ github.com/fatih/color
 # github.com/inconshreveable/mousetrap v1.0.0
 ## explicit
 github.com/inconshreveable/mousetrap
+# github.com/kr/pretty v0.1.0
+## explicit
 # github.com/mattn/go-colorable v0.1.12
 ## explicit; go 1.13
 github.com/mattn/go-colorable
@@ -43,17 +45,17 @@ github.com/palantir/godel/v2/framework/verifyorder
 github.com/palantir/godel/v2/godelgetter
 github.com/palantir/godel/v2/pkg/osarch
 github.com/palantir/godel/v2/pkg/versionedconfig
-# github.com/palantir/pkg v1.0.1
-## explicit; go 1.13
+# github.com/palantir/pkg v1.1.0
+## explicit; go 1.19
 github.com/palantir/pkg
-# github.com/palantir/pkg/cobracli v1.1.0
-## explicit; go 1.16
+# github.com/palantir/pkg/cobracli v1.2.0
+## explicit; go 1.19
 github.com/palantir/pkg/cobracli
 # github.com/palantir/pkg/matcher v1.1.0
 ## explicit; go 1.18
 github.com/palantir/pkg/matcher
-# github.com/palantir/pkg/specdir v1.1.0
-## explicit; go 1.18
+# github.com/palantir/pkg/specdir v1.2.0
+## explicit; go 1.19
 github.com/palantir/pkg/specdir
 # github.com/pkg/errors v0.9.1
 ## explicit
@@ -96,6 +98,8 @@ golang.org/x/tools/internal/typesinternal
 ## explicit; go 1.11
 golang.org/x/xerrors
 golang.org/x/xerrors/internal
+# gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127
+## explicit
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit; go 1.15
 gopkg.in/yaml.v2
