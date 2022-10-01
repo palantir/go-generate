@@ -51,8 +51,8 @@ github.com/palantir/pkg
 # github.com/palantir/pkg/cobracli v1.2.0
 ## explicit; go 1.19
 github.com/palantir/pkg/cobracli
-# github.com/palantir/pkg/matcher v1.1.0
-## explicit; go 1.18
+# github.com/palantir/pkg/matcher v1.2.0
+## explicit; go 1.19
 github.com/palantir/pkg/matcher
 # github.com/palantir/pkg/specdir v1.2.0
 ## explicit; go 1.19
