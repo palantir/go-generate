@@ -1,11 +1,13 @@
 module github.com/palantir/go-generate
 
-go 1.21
+go 1.22
+
+toolchain go1.22.5
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
 	github.com/nmiyake/pkg/gofiles v1.2.0
-	github.com/palantir/godel/v2 v2.112.0
+	github.com/palantir/godel/v2 v2.113.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/palantir/pkg/matcher v1.2.0
 	github.com/pkg/errors v0.9.1
