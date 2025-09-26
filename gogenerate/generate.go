@@ -109,15 +109,6 @@ func runGenerate(rootDir string, projectParam ProjectParam, stdout io.Writer) (m
 
 type checksumSet map[string]*fileChecksumInfo
 
-func (c checksumSet) sortedKeys() []string {
-	var sorted []string
-	for k := range c {
-		sorted = append(sorted, k)
-	}
-	sort.Strings(sorted)
-	return sorted
-}
-
 type ChecksumsDiff map[string]string
 
 func (c ChecksumsDiff) String() string {
