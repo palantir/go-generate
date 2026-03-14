@@ -60,7 +60,7 @@ func Verify(rootDir string, projectParam ProjectParam, stdout io.Writer) (bool, 
 	outputParts = append(outputParts, fmt.Sprintf("Generators produced output that differed from what already exists: %v", sortedKeys))
 	for _, k := range sortedKeys {
 		outputParts = append(outputParts, fmt.Sprintf("  %s:", k))
-		for _, currGenLine := range strings.Split(diff[k].String(), "\n") {
+		for currGenLine := range strings.SplitSeq(diff[k].String(), "\n") {
 			outputParts = append(outputParts, fmt.Sprintf("    %s", currGenLine))
 		}
 	}
