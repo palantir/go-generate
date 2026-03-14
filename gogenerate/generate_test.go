@@ -17,7 +17,6 @@ package gogenerate_test
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path"
 	"testing"
@@ -80,7 +79,7 @@ generators:
 	err = gogenerate.Run(tmpDir, cfg.ToParam(), os.Stdout)
 	require.NoError(t, err)
 
-	outputTxt, err := ioutil.ReadFile(path.Join(tmpDir, "gen", "output.txt"))
+	outputTxt, err := os.ReadFile(path.Join(tmpDir, "gen", "output.txt"))
 	require.NoError(t, err)
 
 	assert.Equal(t, "foo-output", string(outputTxt))
@@ -138,7 +137,7 @@ generators:
 	err = gogenerate.Run(testDir, cfg.ToParam(), os.Stdout)
 	require.NoError(t, err)
 
-	outputTxt, err := ioutil.ReadFile(path.Join(testDir, "gen", "output.txt"))
+	outputTxt, err := os.ReadFile(path.Join(testDir, "gen", "output.txt"))
 	require.NoError(t, err)
 
 	assert.Equal(t, "test-val", string(outputTxt))
@@ -202,7 +201,7 @@ func main() {
 			initialState: func(caseNum int, caseName, testDir string) {
 				err := os.MkdirAll(path.Join(testDir, "gen", "generated"), 0755)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
-				err = ioutil.WriteFile(path.Join(testDir, "gen", "generated", "output.txt"), []byte("foo-output"), 0644)
+				err = os.WriteFile(path.Join(testDir, "gen", "generated", "output.txt"), []byte("foo-output"), 0644)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
 			},
 			wantOutput: `Generators produced output that differed from what already exists: [foo]
@@ -256,9 +255,9 @@ func main() {
 			initialState: func(caseNum int, caseName, testDir string) {
 				err := os.MkdirAll(path.Join(testDir, "gen", "generated"), 0755)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
-				err = ioutil.WriteFile(path.Join(testDir, "gen", "generated", "output.txt"), []byte("foo-output"), 0644)
+				err = os.WriteFile(path.Join(testDir, "gen", "generated", "output.txt"), []byte("foo-output"), 0644)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
-				err = ioutil.WriteFile(path.Join(testDir, "gen", "generated", "output-2.txt"), []byte("foo-output"), 0644)
+				err = os.WriteFile(path.Join(testDir, "gen", "generated", "output-2.txt"), []byte("foo-output"), 0644)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
 			},
 			wantOutput: `Generators produced output that differed from what already exists: [foo]
@@ -311,7 +310,7 @@ func main() {
 			initialState: func(caseNum int, caseName, testDir string) {
 				err := os.MkdirAll(path.Join(testDir, "gen", "generated"), 0755)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
-				err = ioutil.WriteFile(path.Join(testDir, "gen", "generated", "output"), []byte("foo-output"), 0644)
+				err = os.WriteFile(path.Join(testDir, "gen", "generated", "output"), []byte("foo-output"), 0644)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
 			},
 			wantOutput: `Generators produced output that differed from what already exists: [foo]
@@ -408,7 +407,7 @@ func main() {
 				},
 			},
 			initialState: func(caseNum int, caseName, testDir string) {
-				err := ioutil.WriteFile(path.Join(testDir, "gen", "output.txt"), []byte("bar-output-baz"), 0644)
+				err := os.WriteFile(path.Join(testDir, "gen", "output.txt"), []byte("bar-output-baz"), 0644)
 				require.NoError(t, err, "Case %d: %s", caseNum, caseName)
 			},
 			wantOutput: `Generators produced output that differed from what already exists: [foo]
@@ -417,7 +416,7 @@ func main() {
 `,
 		},
 	} {
-		currCaseDir, err := ioutil.TempDir(testDir, "")
+		currCaseDir, err := os.MkdirTemp(testDir, "")
 		require.NoError(t, err, "Case %d: %s", currCaseNum, currCase.name)
 
 		_, err = gofiles.Write(currCaseDir, currCase.gofiles)
