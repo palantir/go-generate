@@ -16,7 +16,6 @@ package commoncmd
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 
 	"github.com/palantir/go-generate/gogenerate"
@@ -52,7 +51,7 @@ func NewRunCmd(use string, projectDirFlagVal, cfgFlagVal *string, verifyFlagVal 
 }
 
 func loadConfig(cfgFile string) (gogenerate.ProjectParam, error) {
-	cfgYML, err := ioutil.ReadFile(cfgFile)
+	cfgYML, err := os.ReadFile(cfgFile)
 	if os.IsNotExist(err) {
 		return gogenerate.ProjectParam{}, nil
 	}
