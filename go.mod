@@ -7,7 +7,7 @@ toolchain go1.26.5
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
 	github.com/nmiyake/pkg/gofiles v1.2.0
-	github.com/palantir/godel/v2 v2.160.0
+	github.com/palantir/godel/v2 v2.163.0
 	github.com/palantir/pkg/cobracli v1.3.0
 	github.com/palantir/pkg/matcher v1.3.0
 	github.com/pkg/errors v0.9.1
