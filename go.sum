@@ -1,7 +1,7 @@
 github.com/VividCortex/ewma v1.2.0 h1:f58SaIzcDXrSy3kWaHNvuJgJ3Nmz59Zji6XoJR/q1ow=
 github.com/VividCortex/ewma v1.2.0/go.mod h1:nz4BbCtbLyFDeC9SUHbtcT5644juEuWfUAUnGx7j5l4=
-github.com/andybalholm/brotli v1.2.6 h1:ftYnfj6usCp+UGV5kSJ3+chpMQgU+gJf/AxsUQ52REI=
-github.com/andybalholm/brotli v1.2.6/go.mod h1:rzTDkvFWvIrjDXZHkuS16NPggd91W3kUSvPlQ1pLaKY=
+github.com/andybalholm/brotli v1.2.7 h1:UgafRPGMam5ySHfRkhthMqOFA6IFoeF3D7mWIDLjG5A=
+github.com/andybalholm/brotli v1.2.7/go.mod h1:rzTDkvFWvIrjDXZHkuS16NPggd91W3kUSvPlQ1pLaKY=
 github.com/cheggaaa/pb/v3 v3.2.1 h1:aprZbFRG+B7+ug76S8QZ6Y1PW168UHzOmbC3wa+aU6I=
 github.com/cheggaaa/pb/v3 v3.2.1/go.mod h1:U9hSVxoKqJrZIE3PkFG1xXXNaK/Ilzg+EF/scpXzEdw=
 github.com/clipperhouse/uax29/v2 v2.7.0 h1:+gs4oBZ2gPfVrKPthwbMzWZDaAFPGYK72F0NJv2v7Vk=
@@ -20,8 +20,8 @@ github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/klauspost/compress v1.20.3 h1:zWNoFqq/lSuYQRim3dUXlXeA0IqwuZGicdG5ZTfY5j4=
 github.com/klauspost/compress v1.20.3/go.mod h1:LUdAzn7YLVvxLpc7y3V1m40wESHTgc1422pwwBSKYuI=
-github.com/klauspost/pgzip v1.2.7 h1:02QB3Ttao6zOWDnSsv3bIvjN24bX0eGjWniQ8vuBfkA=
-github.com/klauspost/pgzip v1.2.7/go.mod h1:g7E6NrOKHOzah4QwK6Ue1tNCJs8IDiNOfjiXTr85U2E=
+github.com/klauspost/pgzip v1.3.0 h1:8t+KjjzD/0n/8vNlJGGZmTeK4njuwffOQvJm8tOSc8o=
+github.com/klauspost/pgzip v1.3.0/go.mod h1:Xx7tAv5DH8ObLHUDQKXoE/nd8i/FYdNDTVMvi3SLTKI=
 github.com/kr/pretty v0.2.1 h1:Fmg33tUaq4/8ym9TJN1x7sLJnHVwhP33CNkpYV/7rwI=
 github.com/kr/pretty v0.2.1/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfnI=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
@@ -45,12 +45,14 @@ github.com/nmiyake/pkg/gofiles v1.2.0 h1:L0LWMfnHyMxiLP2Cuqno163/4zK73FscEsNd7sH
 github.com/nmiyake/pkg/gofiles v1.2.0/go.mod h1:aPXiVvXPwxNanRNuFIRVPYn6eTC4qxjDZni6VNNlzMY=
 github.com/nwaples/rardecode v1.1.3 h1:cWCaZwfM5H7nAD6PyEdcVnczzV8i/JtotnyW/dD9lEc=
 github.com/nwaples/rardecode v1.1.3/go.mod h1:5DzqNKiOdpKKBH87u8VlvAnPZMXcGRhxWkRpHbbfGS0=
-github.com/palantir/godel/v2 v2.203.0 h1:hNYchaPQnpvxOKY3MaId8f1EDh72qIYCcdKDsXHuQqQ=
-github.com/palantir/godel/v2 v2.203.0/go.mod h1:KCjbnzPEAjPrrBXInaBgs0c2mJynPUT141DOiNGaHKM=
+github.com/palantir/godel/v2 v2.204.0 h1:JeGCOMytzN+QoWZIoDm5FUZh4367JdBxibw1yB+wIog=
+github.com/palantir/godel/v2 v2.204.0/go.mod h1:+H1xUfigndKHoIVHVb2oS5o+CoYbsNDR7FXfojgXHuQ=
 github.com/palantir/pkg v1.2.0 h1:GxXiXLcayV/JNptEyBIDvUrd1NRzI+TwpsL64sufrd8=
 github.com/palantir/pkg v1.2.0/go.mod h1:y8Dt3/qSZjq+0pLBeCsxXDqzby3G08bw85gZmJm5mwA=
 github.com/palantir/pkg/cobracli v1.4.0 h1:pMSAaz3rzfkVuaGgOmrgqMkDefizoHdcXtzUroFf5u8=
 github.com/palantir/pkg/cobracli v1.4.0/go.mod h1:F3PqaAXFuDoH16b6aorTDb1pcQPTw9aZOJ8cWnBmALs=
+github.com/palantir/pkg/gotoolchain v0.1.0 h1:o+UA/vwKPpfX/0ahT/1eSiQECupAEEKP4ACf/awCzO4=
+github.com/palantir/pkg/gotoolchain v0.1.0/go.mod h1:q7BS55zf4dsDbi93OQe2Lvv3U70q5nZ/LU+k+fWnOHI=
 github.com/palantir/pkg/matcher v1.3.0 h1:sRcoJUknco5GSKiFW464bbl+E61rwXwyFvHmmisI7B0=
 github.com/palantir/pkg/matcher v1.3.0/go.mod h1:1zHkiClf0Av70MvkSufw3+PWH4D419Y/j0ZVQoyEbGE=
 github.com/palantir/pkg/pkgpath v1.4.0 h1:PJdSKRiLuXfsODgR2Y8Vw/aa8tGWtCkutQ9hFRHwFZI=
